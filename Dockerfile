@@ -1,11 +1,10 @@
 FROM tomcat:9.0-jdk17
 
-# Remove default Tomcat apps
+# Remove default webapps
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Copy only the webapp files and compiled classes
-COPY src/main/webapp/ /usr/local/tomcat/webapps/ROOT/
-COPY build/classes/ /usr/local/tomcat/webapps/ROOT/WEB-INF/classes/
+# Copy everything into the ROOT app
+COPY . /usr/local/tomcat/webapps/ROOT/
 
 EXPOSE 8080
 

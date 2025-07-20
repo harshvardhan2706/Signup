@@ -27,7 +27,7 @@ public class RegistrationServlet extends HttpServlet {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			System.out.println("Driver Loaded");
-			Connection con = DriverManager.getConnection("dbc:mysql://sql12.freesqldatabase.com:3306/sql12789786","sql12789786","5K5QMECeFs");
+			Connection con = DriverManager.getConnection("jdbc:mysql://YOUR_DB_HOST:3306/YOUR_DB_NAME","YOUR_DB_USERNAME","YOUR_DB_PASSWORD");
 			System.out.println("Connection Established...");
 			PreparedStatement pstm = con.prepareStatement("INSERT INTO users(uname,upwd,uemail,umobile) VALUES(?,?,?,?)");
 			pstm.setString(1, uname);

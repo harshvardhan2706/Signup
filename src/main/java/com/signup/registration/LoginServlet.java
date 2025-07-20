@@ -28,7 +28,7 @@ public class LoginServlet extends HttpServlet {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			System.out.println("Driver Loaded");
-			try (java.sql.Connection con = DriverManager.getConnection("dbc:mysql://sql12.freesqldatabase.com:3306/sql12789786","sql12789786","5K5QMECeFs");
+			try (java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://YOUR_DB_HOST:3306/YOUR_DB_NAME","YOUR_DB_USERNAME","YOUR_DB_PASSWORD");
 				 PreparedStatement pstm = con.prepareStatement("SELECT * FROM users WHERE uemail = ? and upwd = ?")) {
 				System.out.println("Connection Established...");
 				pstm.setString(1, uemail);

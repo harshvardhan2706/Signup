@@ -27,7 +27,10 @@ public class RegistrationServlet extends HttpServlet {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			System.out.println("Driver Loaded");
-			Connection con = DriverManager.getConnection("jdbc:mysql://YOUR_DB_HOST:3306/YOUR_DB_NAME","YOUR_DB_USERNAME","YOUR_DB_PASSWORD");
+		    String url = "jdbc:mysql://databasehvg.c1ca4886o89p.eu-north-1.rds.amazonaws.com:3306/databasehvg?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC";
+			String user = "hvardhan";
+			String pass = "Mat2yp8rz1";
+			Connection con = DriverManager.getConnection(url, user, pass);
 			System.out.println("Connection Established...");
 			PreparedStatement pstm = con.prepareStatement("INSERT INTO users(uname,upwd,uemail,umobile) VALUES(?,?,?,?)");
 			pstm.setString(1, uname);

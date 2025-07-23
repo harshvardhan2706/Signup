@@ -28,7 +28,11 @@ public class LoginServlet extends HttpServlet {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			System.out.println("Driver Loaded");
-			try (java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://YOUR_DB_HOST:3306/YOUR_DB_NAME","YOUR_DB_USERNAME","YOUR_DB_PASSWORD");
+			// Update the endpoint below with your actual AWS RDS endpoint
+			String url = "jdbc:mysql://databasehvg.c1ca4886o89p.eu-north-1.rds.amazonaws.com:3306/databasehvg?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC";
+			String user = "hvardhan";
+			String pass = "Mat2yp8rz1";
+			try (java.sql.Connection con = DriverManager.getConnection(url, user, pass);
 				 PreparedStatement pstm = con.prepareStatement("SELECT * FROM users WHERE uemail = ? and upwd = ?")) {
 				System.out.println("Connection Established...");
 				pstm.setString(1, uemail);

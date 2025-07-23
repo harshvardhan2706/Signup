@@ -1,6 +1,8 @@
 package com.signup.registration;
 
 import java.io.IOException;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.*;
 
 import javax.servlet.RequestDispatcher;
@@ -27,9 +29,9 @@ public class LoginServlet extends HttpServlet {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			System.out.println("Driver Loaded");
 			// Update the endpoint below with your actual AWS RDS endpoint
-			String url = System.getenv("DB_URL");
-			String user = System.getenv("DB_USER");
-			String pass = System.getenv("DB_PASS");
+			String url = "jdbc:mysql://databasehvg.c1ca4886o89p.eu-north-1.rds.amazonaws.com:3306/databasehvg?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC?useSSL=false&serverTimezone=UTC";
+			String user = "hvardhan";
+			String pass = "Mat2yp8rz1";
 			try (java.sql.Connection con = DriverManager.getConnection(url, user, pass);
 				 PreparedStatement pstm = con.prepareStatement("SELECT * FROM users WHERE uemail = ? and upwd = ?")) {
 				System.out.println("Connection Established...");

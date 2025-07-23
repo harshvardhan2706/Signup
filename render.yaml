@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: signup-app
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: DB_URL
+        value: jdbc:mysql://databasehvg.c1ca4886o89p.eu-north-1.rds.amazonaws.com:3306/databasehvg?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC
+      - key: DB_USER
+        value: hvardhan
+      - key: DB_PASS
+        value: Mat2yp8rz1

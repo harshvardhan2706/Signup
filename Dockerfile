@@ -1,7 +1,7 @@
 # Use official Tomcat image
 FROM tomcat:9.0
 
-# Remove default ROOT application
+# Remove the default ROOT application
 RUN rm -rf /usr/local/tomcat/webapps/ROOT
 
 # Copy your WAR file as ROOT.war
